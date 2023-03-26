@@ -1001,7 +1001,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 409154832}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1425924199}
+        m_TargetAssemblyTypeName: UIControllerComponent, Assembly-CSharp
+        m_MethodName: ShowMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &409154832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2119,7 +2131,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1363768558}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1425924199}
+        m_TargetAssemblyTypeName: UIControllerComponent, Assembly-CSharp
+        m_MethodName: StartGameWithSettingsButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1363768558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2336,6 +2360,7 @@ GameObject:
   - component: {fileID: 1425924198}
   - component: {fileID: 1425924200}
   - component: {fileID: 1425924199}
+  - component: {fileID: 1425924201}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -2390,9 +2415,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uIControllerComponent: {fileID: 1425924199}
   gridComponent: {fileID: 697855877}
+  ColorCollection: {fileID: 11400000, guid: 269e39b1aaca6cf4abeb629bd47febfb, type: 2}
   minGameSize: {x: 10, y: 10}
   maxGameSize: {x: 40, y: 40}
   minimalColorCount: 4
+--- !u!114 &1425924201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425924197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc58306c29b03fb41932b36f047b73da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameControllerComponent: {fileID: 1425924200}
+  UIControllerComponent: {fileID: 1425924199}
 --- !u!1 &1428735133
 GameObject:
   m_ObjectHideFlags: 0
@@ -3166,7 +3206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1747871350}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1425924199}
+        m_TargetAssemblyTypeName: UIControllerComponent, Assembly-CSharp
+        m_MethodName: ShowSettingMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1747871350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3599,7 +3651,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0

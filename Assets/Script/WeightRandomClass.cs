@@ -19,10 +19,10 @@ namespace Assets.Script
             DictionaryValuesWithWeight= new Dictionary<T, float>();
         }
 
-        public WeightRandomClass(T[] values, float totalWeithts) : this()
+        public WeightRandomClass(T[] values, float totalWeights) : this()
         {
             foreach (var value in values)
-                DictionaryValuesWithWeight.Add(value, totalWeithts / values.Length);
+                DictionaryValuesWithWeight.Add(value, totalWeights / values.Length);
         }
 
         public WeightRandomClass(T[] values, float[] weitghts) : this()

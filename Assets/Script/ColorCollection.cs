@@ -10,6 +10,7 @@ public class ColorCollection : ScriptableObject
     public Color[] colors;
 
     public static ColorCollection Instance;
+
     public ColorCollection() 
     {
         Instance = this;

@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FillColorGame.GridComponents;
 
 public class GameControllerComponent : MonoBehaviour
 {
+    public static GameControllerComponent Instance;
+
     public UIControllerComponent uIControllerComponent;
 
     public GridComponent gridComponent;
+
+    [SerializeField]
+    private ColorCollection ColorCollection;
 
     Camera mainCamera;
 
@@ -15,6 +21,11 @@ public class GameControllerComponent : MonoBehaviour
     public Vector2Int maxGameSize = new Vector2Int(40,40);
 
     public int minimalColorCount = 4;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +38,6 @@ public class GameControllerComponent : MonoBehaviour
     {
         
     }
-
 
     public void GenerateRandomGame()
     {
@@ -50,5 +60,12 @@ public class GameControllerComponent : MonoBehaviour
     public void GenerateGame(Vector2Int Size, int ColorCount)
     {
         gridComponent.GenerateGame(Size, ColorCount);
+    }
+
+    public void ChangeColor(Color color)
+    {
+        Debug.Log(color.ToString());
+
+        gridComponent.ChangeColor(color);
     }
 }

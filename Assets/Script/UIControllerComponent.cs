@@ -31,12 +31,15 @@ public class UIControllerComponent : MonoBehaviour
 
         ColorSlider.minValue = gameController.minimalColorCount;
         ColorSlider.maxValue = ColorCollection.Instance.colors.Length;
+
+        DisableAllWindowUI();
+        ShowMainMenu();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void StartRandomGameButtonPressed()
