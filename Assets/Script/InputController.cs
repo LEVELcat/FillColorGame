@@ -37,7 +37,7 @@ public class InputController : MonoBehaviour
         {
             if (hit.collider.gameObject.GetComponent<CellComponent>() is CellComponent cell)
             {
-                GameControllerComponent.ChangeColor(cell.CellColor);
+                GameControllerComponent.ChangeColor(cell.CurentColor);
             }
         }
     }

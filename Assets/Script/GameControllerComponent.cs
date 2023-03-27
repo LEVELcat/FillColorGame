@@ -64,7 +64,7 @@ public class GameControllerComponent : MonoBehaviour
 
     public void ChangeColor(Color color)
     {
-        Debug.Log(color.ToString());
+        //Debug.Log(color.ToString());
 
         gridComponent.ChangeColor(color);
     }

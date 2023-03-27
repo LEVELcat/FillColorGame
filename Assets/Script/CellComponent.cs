@@ -5,30 +5,28 @@ using UnityEngine;
 using UnityEngine.Sprites;
 using FillColorGame.GridComponents;
 using System.Threading;
+using FillColorGame.GridComponents;
 
 
-public class CellComponent : MonoBehaviour, PathFinderMarker 
+public class CellComponent : MonoBehaviour, IPathFinderMarker 
 {
+    [SerializeField]
     SpriteRenderer spriteRenderer;
 
-    bool PathFinderMarker.Marker { get; set; }
+
 
     private CancellationTokenSource cancellationTokenSource;
 
-    public Color CellColor
-    {
-        get
-        {
-            return spriteRenderer.color;
-        }
-    }
+    public Color CurentColor { get; private set; }
+    public MarkerType Marker { get ; set; }
 
     static float timeToChangeColor = 1f;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer== null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -40,6 +38,7 @@ public class CellComponent : MonoBehaviour, PathFinderMarker
     public void SetColor(Color color)
     {
         spriteRenderer.color = color;
+        CurentColor = color;
     }
 
     public async void ChangeColorWithAnimationAsync(Color color)
@@ -52,6 +51,8 @@ public class CellComponent : MonoBehaviour, PathFinderMarker
         }
 
         cancellationTokenSource = new CancellationTokenSource();
+
+        CurentColor = color;
 
         Color startColor = spriteRenderer.color;
 
