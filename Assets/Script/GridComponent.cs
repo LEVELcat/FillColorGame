@@ -64,30 +64,27 @@ namespace FillColorGame.GridComponents
             }
 
             cellComponents[startPoint.x, startPoint.y].Marker |= MarkerType.ColorChangingMarker;
+
+            ChangeColor(cellComponents[startPoint.x, startPoint.y].CurentColor);
         }
 
         public void ChangeColor(Color color)
         {
-            //cellComponents[startPoint.x, startPoint.y].ChangeColorWithAnimationAsync(color);
-
- 
-
             Vector2Int[] direction = { Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left };
 
             RecursiveCellAlgoritm(startPoint);
             void RecursiveCellAlgoritm(Vector2Int position)
             {
-                Debug.Log(position);
-
                 CellComponent currentCell = cellComponents[position.x, position.y];
 
                 currentCell.Marker |= MarkerType.PathFinderMarker;
 
                 if (currentCell.CurentColor == color) 
                     currentCell.Marker |= MarkerType.ColorChangingMarker;
+
                 else
                 {
-                    if ((currentCell.Marker & MarkerType.ColorChangingMarker) != MarkerType.ColorChangingMarker)
+                    if (currentCell.Marker.HasFlag(MarkerType.ColorChangingMarker) == false)
                         return;
                 }
 
@@ -95,15 +92,14 @@ namespace FillColorGame.GridComponents
                 {
                     Vector2Int nextVector = position + vec;
                     if (nextVector.x >= 0 && nextVector.x < size.x && nextVector.y >= 0 && nextVector.y < size.y)
-                        if ((cellComponents[nextVector.x, nextVector.y].Marker & MarkerType.PathFinderMarker) != MarkerType.PathFinderMarker)
+                        if (cellComponents[nextVector.x, nextVector.y].Marker.HasFlag(MarkerType.PathFinderMarker) == false)
                             RecursiveCellAlgoritm(nextVector);
                 }
             }
 
-
             foreach(var cell in cellComponents)
             {
-                if((cell.Marker & MarkerType.ColorChangingMarker) == MarkerType.ColorChangingMarker)
+                if(cell.Marker.HasFlag(MarkerType.ColorChangingMarker) == true)
                     cell.ChangeColorWithAnimationAsync(color);
 
                 cell.Marker &= ~MarkerType.PathFinderMarker;
