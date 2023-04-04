@@ -42,13 +42,6 @@ public class GameControllerComponent : MonoBehaviour
     public void GenerateRandomGame()
     {
         Vector2Int size = new Vector2Int(Random.Range(minGameSize.x, maxGameSize.x), Random.Range(minGameSize.y, maxGameSize.y));
-        if (size.x > size.y)
-        {
-            int buffer = size.x;
-
-            size.x = size.x;
-            size.y = buffer;
-        }
 
         int ColorCount = Random.Range(4, ColorCollection.Instance.colors.Length);
 
@@ -59,6 +52,14 @@ public class GameControllerComponent : MonoBehaviour
 
     public void GenerateGame(Vector2Int Size, int ColorCount)
     {
+        if (Size.x > Size.y)
+        {
+            mainCamera.orthographicSize = Size.x / 2f + 1f;
+        }
+        else
+        {
+            mainCamera.orthographicSize = Size.y / 2f + 1f;
+        }
         gridComponent.GenerateGame(Size, ColorCount);
     }
 
