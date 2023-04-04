@@ -5,10 +5,9 @@ using UnityEngine;
 using UnityEngine.Sprites;
 using FillColorGame.GridComponents;
 using System.Threading;
-using FillColorGame.GridComponents;
 
 
-public class CellComponent : MonoBehaviour, IPathFinderMarker 
+public class CellComponent : MonoBehaviour
 {
     [SerializeField]
     SpriteRenderer spriteRenderer;
@@ -21,6 +20,12 @@ public class CellComponent : MonoBehaviour, IPathFinderMarker
     public MarkerType Marker { get ; set; }
 
     static float timeToChangeColor = 1f;
+
+    private void Awake()
+    {
+        if(spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +52,8 @@ public class CellComponent : MonoBehaviour, IPathFinderMarker
         {
             cancellationTokenSource.Cancel();
 
-            while (cancellationTokenSource != null) await Task.Yield();
+            while (cancellationTokenSource != null)
+                await Task.Yield();
         }
 
         cancellationTokenSource = new CancellationTokenSource();

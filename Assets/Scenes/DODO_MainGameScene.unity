@@ -1462,7 +1462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellPrefab: {fileID: 691899234652383573, guid: 2bd08cec6e0cd47458dfbb914eae97f8, type: 3}
   startPointPrefab: {fileID: 6630579379527331666, guid: 9e6d2ce847c61bd42a89621df20331ff, type: 3}
-  paradigmeMode: 1
+  paradigmeMode: 2
 --- !u!1 &952813476
 GameObject:
   m_ObjectHideFlags: 0
@@ -2419,7 +2419,7 @@ MonoBehaviour:
   ColorCollection: {fileID: 11400000, guid: 269e39b1aaca6cf4abeb629bd47febfb, type: 2}
   minGameSize: {x: 10, y: 10}
   maxGameSize: {x: 40, y: 40}
-  minimalColorCount: 4
+  minimalColorCount: 2
 --- !u!114 &1425924201
 MonoBehaviour:
   m_ObjectHideFlags: 0

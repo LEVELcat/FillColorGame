@@ -52,7 +52,7 @@ public class UIControllerComponent : MonoBehaviour
     {
         DisableAllWindowUI();
 
-        Vector2Int size = new Vector2Int((int)XSizeSlider.value, (int)YSizeSlider.value); 
+        Vector2Int size = new Vector2Int((int)XSizeSlider.value, (int)YSizeSlider.value);
 
         gameController.GenerateGame(size, (int)ColorSlider.value);
     }
